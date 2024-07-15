@@ -1,6 +1,6 @@
 import React from 'react';
 
-const OrderConfirmation = () => {
+const Page = () => {
     return (
         <div>
             <h1>Confirmação de Pedido</h1>
@@ -9,4 +9,4 @@ const OrderConfirmation = () => {
     );
 };
 
-export default OrderConfirmation;
+export default Page;

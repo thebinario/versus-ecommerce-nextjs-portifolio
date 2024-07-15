@@ -10,7 +10,7 @@ const products = [
     { id: 6, name: 'Tablet', price: 1499.99, image: 'https://images.pexels.com/photos/106344/pexels-photo-106344.jpeg?auto=compress&cs=tinysrgb&w=300', category: 'Tablets' },
 ];
 
-const ProductList: React.FC = () => {
+const Page: React.FC = () => {
     return (
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
             {products.map(product => (
@@ -27,4 +27,4 @@ const ProductList: React.FC = () => {
     );
 };
 
-export default ProductList;
+export default Page;

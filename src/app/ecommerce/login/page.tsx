@@ -1,6 +1,7 @@
+'use client';
 import React from 'react';
 
-const Login = () => {
+const Page = () => {
     return (
         <div>
             <h1>Login</h1>
@@ -9,4 +10,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Page;

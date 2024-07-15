@@ -12,7 +12,7 @@ interface ProductProps {
 
 const Product: React.FC<ProductProps> = ({ id, name, price, image, category }) => {
     return (
-        <Link href={`/product/${id}`} className="group relative block overflow-hidden">
+        <Link href={`/ecommerce/product/product-detail/${id}/${name}/${price}/${btoa(image)}/${category}`} className="group relative block overflow-hidden">
                 <button className="absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
                     <span className="sr-only">Wishlist</span>
                     <svg
