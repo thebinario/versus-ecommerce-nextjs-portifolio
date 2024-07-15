@@ -6,7 +6,7 @@ import LegalLinks from './LegalLinks';
 
 const Footer = () => {
     return (
-        <footer className="bg-white">
+        <footer className="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400">
             <div className="mx-auto max-w-screen-xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8">
                 <div className="sm:flex sm:items-center sm:justify-between">
                     <div className="text-teal-600">

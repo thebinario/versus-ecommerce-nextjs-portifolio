@@ -1,5 +1,3 @@
-// components/Footer/SocialLinks.js
-
 const SocialLinks = () => (
     <ul className="mt-8 flex justify-start gap-6 sm:mt-0 sm:justify-end">
         {[
