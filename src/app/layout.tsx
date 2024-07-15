@@ -1,22 +1,27 @@
-import type {Metadata} from "next";
+import type { Metadata } from 'next';
 import 'tailwindcss/tailwind.css';
-import "./globals.css";
-import Footer from "@/components/Footer/Footer";
+import './globals.css';
+import Footer from '@/components/Footer/Footer';
+import Header from '@/components/Header';
 
 export const metadata: Metadata = {
-    title: "Versus",
-    description: "Versus",
+    title: 'Versus',
+    description: 'Versus',
 };
 
-export default function RootLayout({
-                                       children,
-                                   }: Readonly<{
-    children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="pt">
-        <body>{children}</body>
-        <Footer/>
+        <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <title>{metadata.title}</title>
+            <meta name="description" content={metadata.description} />
+        </head>
+        <body>
+        <Header />
+        <main>{children}</main>
+        <Footer />
+        </body>
         </html>
     );
 }
