@@ -9,28 +9,9 @@ interface ProductProps {
     image: string;
     category: string;
 }
-interface ProductProps {
-    productId: string;
-    name: string;
-    price: number;
-    image: string;
-    category: string;
-}
 
-interface Params {
-    params: ProductProps
-}
 
-const getProductDetails = async (params: ProductProps): Promise<ProductProps> => {
-    return {
-        name: params.name,
-        price: params.price,
-        image: params.image,
-        category: params.category
-    };
-};
-
-const ProductDetail: React.FC<Params> = async ({ params }): Params => {
+const ProductDetail: React.FC<ProductProps> = async ({ params }: any) => {
     const { id, name, price, image, category } = params;
     console.log("Paramns", id, name, price, image, category )
     return (
