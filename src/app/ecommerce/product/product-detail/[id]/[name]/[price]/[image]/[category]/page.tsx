@@ -1,19 +1,10 @@
-
 import Image from 'next/image';
 import React from 'react';
 
-interface ProductProps {
-    id: number;
-    name: string;
-    price: number;
-    image: string;
-    category: string;
-}
 
-
-const ProductDetail: React.FC<ProductProps> = async ({ params }: any) => {
-    const { id, name, price, image, category } = params;
-    console.log("Paramns", id, name, price, image, category )
+const ProductDetail: React.FC = async ({params}: any) => {
+    const {id, name, price, image, category} = params;
+    console.log("Paramns", id, name, price, image, category)
     return (
         <div className="p-6">
             <div className="flex flex-col md:flex-row">
