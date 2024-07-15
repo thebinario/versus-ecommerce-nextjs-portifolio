@@ -3,6 +3,7 @@ import 'tailwindcss/tailwind.css';
 import './globals.css';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header';
+import ThemeToggle from "@/components/ThemeToggle";
 
 export const metadata: Metadata = {
     title: 'Versus',
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </head>
         <body>
         <Header />
+        <ThemeToggle />
         <main>{children}</main>
         <Footer />
         </body>

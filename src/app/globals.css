@@ -1,35 +1,15 @@
+/* globals.css */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 2;
-  --background-rgb: 227, 224, 214;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-rgb: 10, 0, 4;
-  }
-}
-
+/* Light theme (default) */
 body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-rgb));
-  @apply bg-white text-black dark:bg-[#000004] dark:text-white;
+  @apply bg-white text-black;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-
-  .bg-gradient-radial {
-    background-image: radial-gradient(var(--tw-gradient-stops));
-  }
-
-  .bg-gradient-conic {
-    background-image: conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops));
-  }
+/* Dark theme */
+.dark body {
+  @apply bg-gray-900 text-white;
 }
