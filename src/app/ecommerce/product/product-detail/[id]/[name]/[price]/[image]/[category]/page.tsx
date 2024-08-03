@@ -23,6 +23,13 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ params }) => {
         setQuantity(Number(e.target.value));
     };
 
+    const formattedPrice = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+    }).format(price);
+
     return (
         <div className="max-w-6xl mx-auto my-12 p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md min-h-screen">
             <div className="flex flex-col md:flex-row">
@@ -37,7 +44,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ params }) => {
                 </div>
                 <div className="md:w-1/2 md:pl-10 mt-6 md:mt-0">
                     <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-200">{name}</h1>
-                    <p className="text-xl text-gray-600 dark:text-gray-300 mt-4">${price}</p>
+                    <p className="text-xl text-gray-600 dark:text-gray-300 mt-4">{formattedPrice}</p>
                     <p className="text-gray-600 dark:text-gray-300 mt-2">Category: <span className="font-medium text-gray-700 dark:text-gray-400">{category}</span></p>
                     <p className="mt-4 text-gray-700 dark:text-gray-300">{description}</p>
                     <div className="mt-4 flex items-center">
