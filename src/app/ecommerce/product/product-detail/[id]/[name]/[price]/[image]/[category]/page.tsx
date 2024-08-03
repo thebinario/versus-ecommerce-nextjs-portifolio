@@ -1,6 +1,8 @@
 'use client';
+
 import Image from 'next/image';
 import React, { useState } from 'react';
+import { useCart } from '@/context/CartContext';
 
 interface ProductDetailProps {
     params: {
@@ -15,12 +17,26 @@ interface ProductDetailProps {
     }
 }
 
+const decodeBase64 = (base64: string): string => {
+    try {
+        return atob(base64);
+    } catch (e) {
+        console.error("Failed to decode base64 URL:", e);
+        return '';
+    }
+};
+
 const ProductDetail: React.FC<ProductDetailProps> = ({ params }) => {
     const { id, name, price, image, category, description, rating, reviews } = params;
+    const { addToCart } = useCart();
     const [quantity, setQuantity] = useState(1);
 
     const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setQuantity(Number(e.target.value));
+    };
+
+    const handleAddToCart = () => {
+        addToCart({ id: Number(id), name, price, quantity, image: decodeBase64(image) });
     };
 
     const formattedPrice = new Intl.NumberFormat('en-US', {
@@ -35,10 +51,10 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ params }) => {
             <div className="flex flex-col md:flex-row">
                 <div className="md:w-1/2 flex justify-center items-center">
                     <Image
-                        src={atob(image)}
+                        src={decodeBase64(image)}
                         alt={name}
                         width={500}
-                        height={600} // Ajuste a altura aqui para 20% maior
+                        height={600}
                         className="object-cover rounded-lg shadow-md"
                     />
                 </div>
@@ -64,7 +80,10 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ params }) => {
                         />
                     </div>
                     <div className="mt-6 flex space-x-4">
-                        <button className="bg-primary-light text-white font-medium py-2 px-6 rounded-lg shadow-md transition transform hover:scale-105 hover:bg-primary-dark">
+                        <button
+                            onClick={handleAddToCart}
+                            className="bg-primary-light text-white font-medium py-2 px-6 rounded-lg shadow-md transition transform hover:scale-105 hover:bg-primary-dark"
+                        >
                             Add to Cart
                         </button>
                         <button className="bg-secondary-light text-white font-medium py-2 px-6 rounded-lg shadow-md transition transform hover:scale-105 hover:bg-secondary-dark">
