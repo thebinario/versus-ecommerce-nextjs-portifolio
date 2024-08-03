@@ -1,7 +1,9 @@
-'use client'
+'use client';
+
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useCart } from '@/context/CartContext';
 
 interface ProductProps {
     id: any;
@@ -13,6 +15,7 @@ interface ProductProps {
 
 const Product: React.FC<ProductProps> = ({ id, name, price, image, category }) => {
     const [quantity, setQuantity] = useState(1);
+    const { addToCart } = useCart();
 
     const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setQuantity(Number(e.target.value));
@@ -24,7 +27,7 @@ const Product: React.FC<ProductProps> = ({ id, name, price, image, category }) =
     };
 
     const handleAddToCart = () => {
-        // Implement add to cart animation here
+        addToCart({ id, name, price, quantity, image });
         alert(`Added ${quantity} of ${name} to cart`);
     };
 
@@ -53,7 +56,7 @@ const Product: React.FC<ProductProps> = ({ id, name, price, image, category }) =
                     <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        d="M15 10l4.553-4.553a2.25 2.25 0 00-3.182-3.182L12 6.818 9.629 4.447a2.25 2.25 0 00-3.182 3.182L10 10m5 0v9m-5-9l4.553 4.553a2.25 2.25 0 01-3.182 3.182L12 13.182l-2.371 2.371a2.25 2.25 0 01-3.182-3.182L10 10m5 0H9"
+                        d="M15 10l4.553-4.553a2.25 2.25 0 00-3.182-3.182L12 6.818 9.629 4.447a2.25 2.25 0 00-3.182 3.182L10 10m5 0v9m-5-9l4.553 4.553a2.25 2.25 01-3.182 3.182L12 13.182l-2.371 2.371a2.25 2.25 01-3.182-3.182L10 10m5 0H9"
                     />
                 </svg>
             </button>
