@@ -1,12 +1,14 @@
-'use client'
+'use client';
+
 import Link from 'next/link';
 import ThemeToggle from '@/components/ThemeToggle';
 import Image from 'next/image';
 import { useState } from 'react';
+import { useCart } from '@/context/CartContext';
 
 const Header = () => {
+    const { cartItems } = useCart();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [cartItems, setCartItems] = useState(3); // Example cart item count
 
     return (
         <header className="bg-background-light dark:bg-background-dark shadow-md transition-colors duration-500">
@@ -52,9 +54,9 @@ const Header = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l1.4-6H6.6L7 13zm0 0H5l-1 6h16l-1-6h-2m-9 0h8" />
                             </svg>
-                            {cartItems > 0 && (
+                            {cartItems.length > 0 && (
                                 <span className="absolute -top-1 -right-2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">
-                                    {cartItems}
+                                    {cartItems.length}
                                 </span>
                             )}
                         </Link>
