@@ -15,17 +15,27 @@ module.exports = {
           dark: '#2e2c3a'  // roxo escuro
         },
         secondary: {
-          light: '#ff6584',
-          DEFAULT: '#ff4561',
-          dark: '#cc374d'
+          light: '#ff6584',  // rosa claro
+          DEFAULT: '#ff4561',  // rosa padrão
+          dark: '#cc374d'  // rosa escuro
+        },
+        success: {
+          light: '#48bb78',  // verde claro
+          DEFAULT: '#38a169',  // verde padrão
+          dark: '#2f855a'  // verde escuro
+        },
+        warning: {
+          light: '#f6ad55',  // laranja claro
+          DEFAULT: '#ed8936',  // laranja padrão
+          dark: '#dd6b20'  // laranja escuro
         },
         background: {
-          light: '#ffffff',
-          dark: '#1a202c'
+          light: '#ffffff',  // fundo claro
+          dark: '#1a202c'  // fundo escuro
         },
         text: {
-          light: '#2d3748',
-          dark: '#edf2f7'
+          light: '#2d3748',  // texto claro
+          dark: '#edf2f7'  // texto escuro
         }
       }
     },
