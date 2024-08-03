@@ -3,48 +3,19 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useCart } from '@/context/CartContext';
 
 const Page = () => {
-    const initialCartItems = [
-        { id: 1, name: 'Produto 1', price: 29.99, quantity: 1, image: '/path/to/image1.jpg' },
-        { id: 2, name: 'Produto 2', price: 49.99, quantity: 2, image: '/path/to/image2.jpg' },
-        { id: 3, name: 'Produto 3', price: 19.99, quantity: 1, image: '/path/to/image3.jpg' },
-    ];
-
-    const [cartItems, setCartItems] = useState(initialCartItems);
-    const [loading, setLoading] = useState(false);
+    const { cartItems, removeFromCart, updateQuantity, total, discount, applyDiscount } = useCart();
     const [coupon, setCoupon] = useState('');
-    const [discount, setDiscount] = useState(0);
+    const [loading, setLoading] = useState(false);
 
-    const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
     const totalWithDiscount = total - discount;
 
-    const handleQuantityChange = (id, amount) => {
-        setLoading(true);
-        setCartItems(cartItems.map(item => {
-            if (item.id === id) {
-                return { ...item, quantity: Math.max(1, item.quantity + amount) };
-            }
-            return item;
-        }));
-        setLoading(false);
-    };
-
-    const handleRemoveItem = (id) => {
-        setLoading(true);
-        setCartItems(cartItems.filter(item => item.id !== id));
-        setLoading(false);
-    };
-
     const handleApplyCoupon = () => {
-        // Mock discount value
         setLoading(true);
         setTimeout(() => {
-            if (coupon === 'DISCOUNT10') {
-                setDiscount(10);
-            } else {
-                setDiscount(0);
-            }
+            applyDiscount(coupon);
             setLoading(false);
         }, 1000);
     };
@@ -65,13 +36,13 @@ const Page = () => {
                                         <Image src={item.image} alt={item.name} width={64} height={64} className="object-cover rounded" />
                                         <div className="ml-4">
                                             <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">{item.name}</h2>
-                                            <p className="text-gray-600 dark:text-gray-400">${item.price.toFixed(2)}</p>
+                                            <p className="text-gray-600 dark:text-gray-400">${item.price}</p>
                                             <div className="flex items-center mt-2">
-                                                <button onClick={() => handleQuantityChange(item.id, -1)} className="px-3 py-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-l" disabled={item.quantity === 1}>-</button>
+                                                <button onClick={() => updateQuantity(item.id, -1)} className="px-3 py-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-l" disabled={item.quantity === 1}>-</button>
                                                 <span className="px-3 py-1 bg-gray-100 dark:bg-gray-600 text-gray-900 dark:text-gray-100">{item.quantity}</span>
-                                                <button onClick={() => handleQuantityChange(item.id, 1)} className="px-3 py-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-r">+</button>
+                                                <button onClick={() => updateQuantity(item.id, 1)} className="px-3 py-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-r">+</button>
                                             </div>
-                                            <button onClick={() => handleRemoveItem(item.id)} className="mt-2 text-red-500 dark:text-red-400">Remover</button>
+                                            <button onClick={() => removeFromCart(item.id)} className="mt-2 text-red-500 dark:text-red-400">Remover</button>
                                         </div>
                                     </div>
                                     <p className="text-gray-900 dark:text-gray-100">${(item.price * item.quantity).toFixed(2)}</p>
