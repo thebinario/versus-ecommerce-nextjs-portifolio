@@ -21,7 +21,7 @@ const Header = () => {
                             <ul className="flex items-center gap-6 text-sm">
                                 {['Home', 'Shop', 'About', 'Contact'].map((item) => (
                                     <li key={item} className="relative group">
-                                        <Link href={`/${item.toLowerCase()}`} className="text-text-light dark:text-text-dark transition-colors duration-500 hover:text-primary-dark dark:hover:text-primary-light">
+                                        <Link href={item === 'Home' || item === 'Shop' ? "/ecommerce/product" : `/${item.toLowerCase()}`} className="text-text-light dark:text-text-dark transition-colors duration-500 hover:text-primary-dark dark:hover:text-primary-light">
                                             {item}
                                         </Link>
                                         {item === 'Shop' && (
@@ -79,7 +79,7 @@ const Header = () => {
                         <ul className="flex flex-col items-center gap-4 text-sm mt-4">
                             {['Home', 'Shop', 'About', 'Contact'].map((item) => (
                                 <li key={item}>
-                                    <Link href={`/${item.toLowerCase()}`} className="text-text-light dark:text-text-dark transition hover:text-primary-dark dark:hover:text-primary-light">
+                                    <Link href={item === 'Home' || item === 'Shop' ? "/ecommerce/product" : `/${item.toLowerCase()}`} className="text-text-light dark:text-text-dark transition hover:text-primary-dark dark:hover:text-primary-light">
                                         {item}
                                     </Link>
                                 </li>
