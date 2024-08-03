@@ -24,7 +24,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ params }) => {
     };
 
     return (
-        <div className="max-w-6xl mx-auto my-12 p-6 bg-white dark:bg-gray-200 rounded-lg shadow-md min-h-screen">
+        <div className="max-w-6xl mx-auto my-12 p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md min-h-screen">
             <div className="flex flex-col md:flex-row">
                 <div className="md:w-1/2 flex justify-center items-center">
                     <Image
@@ -36,16 +36,16 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ params }) => {
                     />
                 </div>
                 <div className="md:w-1/2 md:pl-10 mt-6 md:mt-0">
-                    <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-700">{name}</h1>
-                    <p className="text-xl text-gray-600 dark:text-gray-600 mt-4">${price}</p>
-                    <p className="text-gray-600 dark:text-gray-600 mt-2">Category: <span className="font-medium text-gray-700 dark:text-gray-700">{category}</span></p>
-                    <p className="mt-4 text-gray-700 dark:text-gray-800">{description}</p>
+                    <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-200">{name}</h1>
+                    <p className="text-xl text-gray-600 dark:text-gray-300 mt-4">${price}</p>
+                    <p className="text-gray-600 dark:text-gray-300 mt-2">Category: <span className="font-medium text-gray-700 dark:text-gray-400">{category}</span></p>
+                    <p className="mt-4 text-gray-700 dark:text-gray-300">{description}</p>
                     <div className="mt-4 flex items-center">
-                        <span className="text-gray-800 dark:text-gray-700 font-medium">{rating}</span>
-                        <span className="ml-2 text-sm text-gray-600 dark:text-gray-500">({reviews} reviews)</span>
+                        <span className="text-gray-800 dark:text-gray-200 font-medium">{rating}</span>
+                        <span className="ml-2 text-sm text-gray-600 dark:text-gray-400">({reviews} reviews)</span>
                     </div>
                     <div className="mt-4 flex items-center">
-                        <label htmlFor="quantity" className="mr-2 text-gray-600 dark:text-gray-600">Quantity:</label>
+                        <label htmlFor="quantity" className="mr-2 text-gray-600 dark:text-gray-300">Quantity:</label>
                         <input
                             type="number"
                             id="quantity"
@@ -95,13 +95,13 @@ const Comments: React.FC = () => {
 
     return (
         <div className="mt-12">
-            <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-700">Comments</h2>
+            <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200">Comments</h2>
             <div className="mt-4 space-y-4">
                 {mockComments.map(comment => (
-                    <div key={comment.id} className="p-4 bg-gray-100 dark:bg-gray-300 rounded-lg shadow-md">
-                        <p className="text-gray-700 dark:text-gray-800 font-medium">{comment.name}</p>
-                        <p className="text-gray-600 dark:text-gray-700">{comment.comment}</p>
-                        <p className="text-sm text-gray-500 dark:text-gray-600">{comment.date}</p>
+                    <div key={comment.id} className="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md">
+                        <p className="text-gray-700 dark:text-gray-300 font-medium">{comment.name}</p>
+                        <p className="text-gray-600 dark:text-gray-400">{comment.comment}</p>
+                        <p className="text-sm text-gray-500 dark:text-gray-500">{comment.date}</p>
                     </div>
                 ))}
             </div>
