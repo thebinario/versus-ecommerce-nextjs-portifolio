@@ -12,17 +12,20 @@ const products = [
 
 const Page: React.FC = () => {
     return (
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-            {products.map(product => (
-                <Product
-                    key={product.id}
-                    id={product.id}
-                    name={product.name}
-                    price={product.price}
-                    image={product.image}
-                    category={product.category}
-                />
-            ))}
+        <div className="container mx-auto my-12 p-6">
+            <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-8 text-center">Products</h1>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {products.map(product => (
+                    <Product
+                        key={product.id}
+                        id={product.id}
+                        name={product.name}
+                        price={product.price}
+                        image={product.image}
+                        category={product.category}
+                    />
+                ))}
+            </div>
         </div>
     );
 };
