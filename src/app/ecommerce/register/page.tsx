@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -23,12 +23,12 @@ const Register = () => {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
-            <div className="w-full max-w-md p-8 space-y-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
-                <h1 className="text-3xl font-bold text-center text-gray-900 dark:text-gray-100">Register</h1>
+        <div className="flex items-center justify-center min-h-screen bg-background-light dark:bg-background-dark">
+            <div className="w-full max-w-md p-8 space-y-6 bg-white dark:bg-primary-dark rounded-lg shadow-md">
+                <h1 className="text-3xl font-bold text-center text-primary-dark dark:text-text-dark">Register</h1>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                     <div>
-                        <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 dark:text-gray-300">First Name</label>
+                        <label htmlFor="firstName" className="block text-sm font-medium text-text-light dark:text-text-dark">First Name</label>
                         <Controller
                             name="firstName"
                             control={control}
@@ -38,14 +38,14 @@ const Register = () => {
                                     {...field}
                                     id="firstName"
                                     type="text"
-                                    className={`mt-1 block w-full px-3 py-2 border ${errors.firstName ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-gray-300`}
+                                    className={`mt-1 block w-full px-3 py-2 border ${errors.firstName ? 'border-secondary-dark' : 'border-gray-300'} rounded-md shadow-sm focus:outline-none focus:ring-primary-light focus:border-primary-light dark:bg-gray-700 dark:text-text-dark`}
                                 />
                             )}
                         />
-                        {errors.firstName && <p className="mt-2 text-sm text-red-600 dark:text-red-400">{errors.firstName.message}</p>}
+                        {errors.firstName && <p className="mt-2 text-sm text-secondary-dark dark:text-secondary-light">{errors.firstName.message}</p>}
                     </div>
                     <div>
-                        <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Last Name</label>
+                        <label htmlFor="lastName" className="block text-sm font-medium text-text-light dark:text-text-dark">Last Name</label>
                         <Controller
                             name="lastName"
                             control={control}
@@ -55,14 +55,14 @@ const Register = () => {
                                     {...field}
                                     id="lastName"
                                     type="text"
-                                    className={`mt-1 block w-full px-3 py-2 border ${errors.lastName ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-gray-300`}
+                                    className={`mt-1 block w-full px-3 py-2 border ${errors.lastName ? 'border-secondary-dark' : 'border-gray-300'} rounded-md shadow-sm focus:outline-none focus:ring-primary-light focus:border-primary-light dark:bg-gray-700 dark:text-text-dark`}
                                 />
                             )}
                         />
-                        {errors.lastName && <p className="mt-2 text-sm text-red-600 dark:text-red-400">{errors.lastName.message}</p>}
+                        {errors.lastName && <p className="mt-2 text-sm text-secondary-dark dark:text-secondary-light">{errors.lastName.message}</p>}
                     </div>
                     <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Email Address</label>
+                        <label htmlFor="email" className="block text-sm font-medium text-text-light dark:text-text-dark">Email Address</label>
                         <Controller
                             name="email"
                             control={control}
@@ -72,14 +72,14 @@ const Register = () => {
                                     {...field}
                                     id="email"
                                     type="email"
-                                    className={`mt-1 block w-full px-3 py-2 border ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-gray-300`}
+                                    className={`mt-1 block w-full px-3 py-2 border ${errors.email ? 'border-secondary-dark' : 'border-gray-300'} rounded-md shadow-sm focus:outline-none focus:ring-primary-light focus:border-primary-light dark:bg-gray-700 dark:text-text-dark`}
                                 />
                             )}
                         />
-                        {errors.email && <p className="mt-2 text-sm text-red-600 dark:text-red-400">{errors.email.message}</p>}
+                        {errors.email && <p className="mt-2 text-sm text-secondary-dark dark:text-secondary-light">{errors.email.message}</p>}
                     </div>
                     <div>
-                        <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Password</label>
+                        <label htmlFor="password" className="block text-sm font-medium text-text-light dark:text-text-dark">Password</label>
                         <Controller
                             name="password"
                             control={control}
@@ -89,16 +89,16 @@ const Register = () => {
                                     {...field}
                                     id="password"
                                     type="password"
-                                    className={`mt-1 block w-full px-3 py-2 border ${errors.password ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-gray-300`}
+                                    className={`mt-1 block w-full px-3 py-2 border ${errors.password ? 'border-secondary-dark' : 'border-gray-300'} rounded-md shadow-sm focus:outline-none focus:ring-primary-light focus:border-primary-light dark:bg-gray-700 dark:text-text-dark`}
                                 />
                             )}
                         />
-                        {errors.password && <p className="mt-2 text-sm text-red-600 dark:text-red-400">{errors.password.message}</p>}
+                        {errors.password && <p className="mt-2 text-sm text-secondary-dark dark:text-secondary-light">{errors.password.message}</p>}
                     </div>
                     <div>
                         <button
                             type="submit"
-                            className="w-full px-4 py-2 font-medium text-white bg-indigo-600 rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            className="w-full px-4 py-2 font-medium text-white bg-primary-light rounded-md shadow-sm hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-light"
                         >
                             Register
                         </button>
