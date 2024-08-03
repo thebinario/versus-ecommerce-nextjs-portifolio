@@ -10,37 +10,32 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          light: '#4F46E5',  // azul claro
-          DEFAULT: '#3B82F6',  // azul padrão
-          dark: '#1E40AF'  // azul escuro
+          light: '#6c63ff',  // roxo claro
+          DEFAULT: '#3f3d56',  // roxo padrão
+          dark: '#2e2c3a'  // roxo escuro
         },
         secondary: {
-          light: '#34D399',  // verde claro
-          DEFAULT: '#10B981',  // verde padrão
-          dark: '#047857'  // verde escuro
+          light: '#ff6584',  // rosa claro
+          DEFAULT: '#ff4561',  // rosa padrão
+          dark: '#cc374d'  // rosa escuro
         },
         success: {
-          light: '#BBF7D0',  // verde claro
-          DEFAULT: '#34D399',  // verde padrão
-          dark: '#065F46'  // verde escuro
+          light: '#48bb78',  // verde claro
+          DEFAULT: '#38a169',  // verde padrão
+          dark: '#2f855a'  // verde escuro
         },
         warning: {
-          light: '#FDE68A',  // laranja claro
-          DEFAULT: '#F59E0B',  // laranja padrão
-          dark: '#B45309'  // laranja escuro
-        },
-        error: {
-          light: '#FCA5A5',  // vermelho claro
-          DEFAULT: '#EF4444',  // vermelho padrão
-          dark: '#991B1B'  // vermelho escuro
+          light: '#f6ad55',  // laranja claro
+          DEFAULT: '#ed8936',  // laranja padrão
+          dark: '#dd6b20'  // laranja escuro
         },
         background: {
-          light: '#F3F4F6',  // fundo claro
-          dark: '#1F2937'  // fundo escuro
+          light: '#ffffff',  // fundo claro
+          dark: '#121212'  // fundo escuro atualizado
         },
         text: {
-          light: '#1F2937',  // texto claro
-          dark: '#F9FAFB'  // texto escuro
+          light: '#2d3748',  // texto claro
+          dark: '#edf2f7'  // texto escuro
         }
       }
     },
