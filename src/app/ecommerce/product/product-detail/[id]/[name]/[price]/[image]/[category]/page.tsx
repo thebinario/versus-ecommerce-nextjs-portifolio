@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import Image from 'next/image';
 import React, { useState } from 'react';
 
@@ -31,7 +31,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ params }) => {
     }).format(price);
 
     return (
-        <div className="max-w-6xl mx-auto my-12 p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md min-h-screen">
+        <div className="max-w-6xl mx-auto my-12 p-6 bg-background-light dark:bg-background-dark rounded-lg shadow-md min-h-screen">
             <div className="flex flex-col md:flex-row">
                 <div className="md:w-1/2 flex justify-center items-center">
                     <Image
@@ -43,16 +43,16 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ params }) => {
                     />
                 </div>
                 <div className="md:w-1/2 md:pl-10 mt-6 md:mt-0">
-                    <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-200">{name}</h1>
-                    <p className="text-xl text-gray-600 dark:text-gray-300 mt-4">{formattedPrice}</p>
-                    <p className="text-gray-600 dark:text-gray-300 mt-2">Category: <span className="font-medium text-gray-700 dark:text-gray-400">{category}</span></p>
-                    <p className="mt-4 text-gray-700 dark:text-gray-300">{description}</p>
+                    <h1 className="text-3xl font-bold text-text-light dark:text-text-dark">{name}</h1>
+                    <p className="text-xl text-text-light dark:text-text-dark mt-4">{formattedPrice}</p>
+                    <p className="text-text-light dark:text-text-dark mt-2">Category: <span className="font-medium text-primary-light dark:text-primary-dark">{category}</span></p>
+                    <p className="mt-4 text-text-light dark:text-text-dark">{description}</p>
                     <div className="mt-4 flex items-center">
-                        <span className="text-gray-800 dark:text-gray-200 font-medium">{rating}</span>
-                        <span className="ml-2 text-sm text-gray-600 dark:text-gray-400">({reviews} reviews)</span>
+                        <span className="text-text-light dark:text-text-dark font-medium">{rating}</span>
+                        <span className="ml-2 text-sm text-text-light dark:text-text-dark">({reviews} reviews)</span>
                     </div>
                     <div className="mt-4 flex items-center">
-                        <label htmlFor="quantity" className="mr-2 text-gray-600 dark:text-gray-300">Quantity:</label>
+                        <label htmlFor="quantity" className="mr-2 text-text-light dark:text-text-dark">Quantity:</label>
                         <input
                             type="number"
                             id="quantity"
@@ -60,15 +60,21 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ params }) => {
                             value={quantity}
                             onChange={handleQuantityChange}
                             min="1"
-                            className="w-16 p-2 border rounded"
+                            className="w-16 p-2 border rounded dark:bg-primary-dark dark:text-text-dark"
                         />
                     </div>
                     <div className="mt-6 flex space-x-4">
-                        <button className="bg-yellow-500 text-white font-medium py-2 px-6 rounded-lg shadow-md transition transform hover:scale-105 hover:bg-yellow-600">
+                        <button className="bg-primary-light text-white font-medium py-2 px-6 rounded-lg shadow-md transition transform hover:scale-105 hover:bg-primary-dark">
                             Add to Cart
                         </button>
-                        <button className="bg-blue-500 text-white font-medium py-2 px-6 rounded-lg shadow-md transition transform hover:scale-105 hover:bg-blue-600">
+                        <button className="bg-secondary-light text-white font-medium py-2 px-6 rounded-lg shadow-md transition transform hover:scale-105 hover:bg-secondary-dark">
                             Share
+                        </button>
+                        <button className="bg-success-light text-white font-medium py-2 px-6 rounded-lg shadow-md transition transform hover:scale-105 hover:bg-success-dark">
+                            Buy Now
+                        </button>
+                        <button className="bg-warning-light text-white font-medium py-2 px-6 rounded-lg shadow-md transition transform hover:scale-105 hover:bg-warning-dark">
+                            Wishlist
                         </button>
                     </div>
                 </div>
@@ -102,13 +108,13 @@ const Comments: React.FC = () => {
 
     return (
         <div className="mt-12">
-            <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200">Comments</h2>
+            <h2 className="text-2xl font-bold text-text-light dark:text-text-dark">Comments</h2>
             <div className="mt-4 space-y-4">
                 {mockComments.map(comment => (
-                    <div key={comment.id} className="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md">
-                        <p className="text-gray-700 dark:text-gray-300 font-medium">{comment.name}</p>
-                        <p className="text-gray-600 dark:text-gray-400">{comment.comment}</p>
-                        <p className="text-sm text-gray-500 dark:text-gray-500">{comment.date}</p>
+                    <div key={comment.id} className="p-4 bg-background-light dark:bg-background-dark rounded-lg shadow-md">
+                        <p className="text-text-light dark:text-text-dark font-medium">{comment.name}</p>
+                        <p className="text-text-light dark:text-text-dark">{comment.comment}</p>
+                        <p className="text-sm text-text-light dark:text-text-dark">{comment.date}</p>
                     </div>
                 ))}
             </div>
