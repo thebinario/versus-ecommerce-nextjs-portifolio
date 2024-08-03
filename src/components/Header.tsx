@@ -37,7 +37,7 @@ const Header = () => {
 
                             </Link>
                             <div className="hidden sm:flex">
-                                <Link href="#"
+                                <Link href="/ecommerce/register"
                                       className="rounded-md bg-gray-100 dark:bg-gray-700 px-5 py-2.5 text-sm font-medium text-teal-600 dark:text-teal-400">
                                     Register
 
