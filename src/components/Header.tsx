@@ -6,6 +6,7 @@ import { useState } from 'react';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [cartItems, setCartItems] = useState(3); // Example cart item count
 
     return (
         <header className="bg-background-light dark:bg-background-dark shadow-md transition-colors duration-500">
@@ -18,15 +19,20 @@ const Header = () => {
                         </Link>
                         <nav className="hidden md:flex md:items-center md:gap-8">
                             <ul className="flex items-center gap-6 text-sm">
-                                {['About', 'Careers', 'History', 'Services', 'Projects', 'Blog'].map((item) => (
+                                {['Home', 'Shop', 'About', 'Contact'].map((item) => (
                                     <li key={item} className="relative group">
-                                        <Link href={`#${item.toLowerCase()}`} className="text-text-light dark:text-text-dark transition-colors duration-500 hover:text-primary-dark dark:hover:text-primary-light">
+                                        <Link href={`/${item.toLowerCase()}`} className="text-text-light dark:text-text-dark transition-colors duration-500 hover:text-primary-dark dark:hover:text-primary-light">
                                             {item}
                                         </Link>
-                                        <div className="absolute left-0 mt-2 hidden w-40 bg-white dark:bg-gray-800 shadow-lg group-hover:block">
-                                            <Link href={`#${item.toLowerCase()}/subitem1`} className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">Subitem 1</Link>
-                                            <Link href={`#${item.toLowerCase()}/subitem2`} className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">Subitem 2</Link>
-                                        </div>
+                                        {item === 'Shop' && (
+                                            <div className="absolute left-0 mt-2 hidden w-40 bg-white dark:bg-gray-800 shadow-lg group-hover:block">
+                                                {['Men', 'Women', 'Kids', 'Accessories'].map((subitem) => (
+                                                    <Link key={subitem} href={`/shop/${subitem.toLowerCase()}`} className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                                        {subitem}
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        )}
                                     </li>
                                 ))}
                             </ul>
@@ -42,6 +48,16 @@ const Header = () => {
                                 </svg>
                             </button>
                         </div>
+                        <Link href="/ecommerce/cart" className="relative flex items-center text-gray-600 dark:text-gray-400 transition hover:text-gray-700 dark:hover:text-gray-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l1.4-6H6.6L7 13zm0 0H5l-1 6h16l-1-6h-2m-9 0h8" />
+                            </svg>
+                            {cartItems > 0 && (
+                                <span className="absolute -top-1 -right-2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full">
+                                    {cartItems}
+                                </span>
+                            )}
+                        </Link>
                         <div className="hidden sm:flex sm:gap-4">
                             <Link href="/ecommerce/login" className="rounded-md bg-primary-light dark:bg-primary-dark px-5 py-2.5 text-sm font-medium text-white shadow-md transition-transform transform hover:scale-105 duration-300">
                                 Login
@@ -61,9 +77,9 @@ const Header = () => {
                 {isMenuOpen && (
                     <div className="md:hidden">
                         <ul className="flex flex-col items-center gap-4 text-sm mt-4">
-                            {['About', 'Careers', 'History', 'Services', 'Projects', 'Blog'].map((item) => (
+                            {['Home', 'Shop', 'About', 'Contact'].map((item) => (
                                 <li key={item}>
-                                    <Link href={`#${item.toLowerCase()}`} className="text-text-light dark:text-text-dark transition hover:text-primary-dark dark:hover:text-primary-light">
+                                    <Link href={`/${item.toLowerCase()}`} className="text-text-light dark:text-text-dark transition hover:text-primary-dark dark:hover:text-primary-light">
                                         {item}
                                     </Link>
                                 </li>
